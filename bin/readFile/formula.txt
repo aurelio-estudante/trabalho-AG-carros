@@ -1,0 +1,29 @@
+high,	med,	2,	more,	small,	high,   unacc
+
+high,	med,	2,	more,	big,	med,    acc
+
+med,	low,	2,	4,		small,	high,   good
+
+med,	med,	2,	4,		big,	high,   vgood
+
+
+high,	med,	2,	more,	big,	med,    acc
+
+1, 2, 3, 4 		preco 			--- peso 3
+
+1, 2, 3, 4 		manutencao		--- peso 1
+
+1, 2, 3, 4 		portas			--- peso 1
+
+1, 2, 3 		num_pessoas		--- peso 2
+
+1 , 2, 3 		porta_malas		--- peso 3
+
+1, 2, 3 		seguranca 		--- peso 2
+
+high,	med,	2,	more,	big,	med,    acc
+
+carro[3,2,1,3,3,2];
+
+26- = Ruim
+27+ = Bao
