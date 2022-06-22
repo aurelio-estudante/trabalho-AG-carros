@@ -6,7 +6,7 @@ import readFile.Leitor;
 public class Main {
     public static void main(String[] args) {
         String lerFrom = "src/readFile/car.txt";
-        /* Leitor ler = new Leitor(lerFrom);
+        Leitor ler = new Leitor(lerFrom);
         int[][] dados = ler.geraPop();
         int[][] aptitude = ler.aptitudeCalc(dados);
         for(int i=0;i<dados.length;i++){
@@ -22,7 +22,7 @@ public class Main {
             }
             System.out.println();
         }
-        */
-        DumpToFile dump = new DumpToFile("/home/aluno/Documentos/trabalho-AG-carros/ag-carros/src/dump", lerFrom, "dump1.csv");
+        
+        //DumpToFile dump = new DumpToFile("/home/aluno/Documentos/trabalho-AG-carros/ag-carros/src/dump", lerFrom, "dump1.csv");
     }
 }

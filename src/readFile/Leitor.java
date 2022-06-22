@@ -104,7 +104,7 @@ public class Leitor {
     public int[][] aptitudeCalc(int[][] dados){
         int[][] aptitude = new int[dados.length][1];
         for(int i=0; i<dados.length;i++){
-            aptitude[i][0] = (dados[i][0]*3)+(dados[i][1]*1)+(dados[i][2]*1)+(dados[i][3]*2)+(dados[i][4]*3)+(dados[i][5]*2);
+            aptitude[i][0] = (dados[i][0]*3)+(dados[i][1]*1)+(dados[i][2]*1)+(dados[i][3]*2)+(dados[i][4]*3)+(dados[i][5]*2);//(ValorPosição*Peso)
         }
         return aptitude;
     }
@@ -119,7 +119,7 @@ public class Leitor {
                 newPop[i][j] = dados[i][j];
             }
             for(int j=2; j<4;j++){
-                newPop[i][j] = dados[i][j];
+                newPop[i][j] = dados[i+1][j];
             }
             for(int j=4; j<6;j++){
                 newPop[i][j] = dados[i][j];
