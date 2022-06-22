@@ -1,6 +1,6 @@
 # Trabalho AG Carros
 ## Participantes:
 
-Aurélio Filho
-Aenderson Souza
+Aurélio Filho,
+Aenderson Souza,
 Bruno Gomes
