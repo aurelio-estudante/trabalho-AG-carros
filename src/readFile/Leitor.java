@@ -26,6 +26,7 @@ public class Leitor {
         }
         return dados;
     }
+    
     public int[][] converte(){
         ArrayList<String> dados = lerArquivo();
         int numLinhas = dados.size();
@@ -101,14 +102,32 @@ public class Leitor {
         return dadosConvertidos;
     }
     
-    public int[][] aptitudeCalc(int[][] dados){
-        int[][] aptitude = new int[dados.length][1];
+    public ArrayList<Gene> aptitudeCalc(int[][] dados){
+        int aptitude = 0;
+        ArrayList<Gene> genes = new ArrayList<>();
         for(int i=0; i<dados.length;i++){
-            aptitude[i][0] = (dados[i][0]*3)+(dados[i][1]*1)+(dados[i][2]*1)+(dados[i][3]*2)+(dados[i][4]*3)+(dados[i][5]*2);//(ValorPosição*Peso)
+            int[] geneTemp = new int[6];
+            for(int j=0; j<6;j++){
+                geneTemp[j] = dados[i][j];
+            }
+            aptitude = (dados[i][0]*3)+(dados[i][1]*1)+(dados[i][2]*1)+(dados[i][3]*2)+(dados[i][4]*3)+(dados[i][5]*2);//(ValorPosição*Peso)
+            Gene gene = new Gene(geneTemp, aptitude);
+            genes.add(gene);
         }
-        return aptitude;
+        return genes;
     }
     
+    public Gene getBest(ArrayList<Gene> genes){
+        Gene melhor = new Gene();
+        int maiorAptitude = -5;
+        for (Gene gene : genes) {
+            if(gene.getAptitude()>maiorAptitude){
+                melhor = gene;
+                maiorAptitude = melhor.getAptitude();
+            }
+        }
+        return melhor;
+    }
 
     public int[][] geraPop(){
         int[][] dados = converte();
@@ -133,5 +152,27 @@ public class Leitor {
         return newPop;
     }
 
-    /*Esperando que os commits funcionem */
+    public int[][] geraPop(int[][] pop){
+        int[][] dados = pop;
+        int[][] newPop = new int[dados.length][6];
+        Random rand = new Random();
+        for(int i=0;i<dados.length-1;i++){
+            for(int j=0; j<2;j++){
+                newPop[i][j] = dados[i][j];
+            }
+            for(int j=2; j<4;j++){
+                newPop[i][j] = dados[i+1][j];
+            }
+            for(int j=4; j<6;j++){
+                newPop[i][j] = dados[i][j];
+            }
+            int mutation = rand.nextInt(6);
+            newPop[i][mutation] = dados[rand.nextInt(dados.length)][mutation];
+        }
+        for(int j=0; j<6;j++){
+            newPop[dados.length-1][j] = dados[rand.nextInt(dados.length)][j];
+        }
+        return newPop;
+    }
+
 }

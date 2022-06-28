@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
 import dump.DumpToFile;
+import readFile.Gene;
 import readFile.Leitor;
 
 public class Main {
@@ -8,21 +9,12 @@ public class Main {
         String lerFrom = "src/readFile/car.txt";
         Leitor ler = new Leitor(lerFrom);
         int[][] dados = ler.geraPop();
-        int[][] aptitude = ler.aptitudeCalc(dados);
-        for(int i=0;i<dados.length;i++){
-            System.out.print("Gene: ");
-            for(int j=0; j<dados[i].length;j++){
-                System.out.print(dados[i][j]);
-            }
-            System.out.print(" Aptitude: "+aptitude[i][0]);
-            if(aptitude[i][0]<27){
-                System.out.print(" Tipo: Ruim");
-            }else{
-                System.out.print(" Tipo: Bao");
-            }
-            System.out.println();
+        ArrayList<Gene> aptitude = ler.aptitudeCalc(dados);
+        Gene best = ler.getBest(aptitude);     
+        for (Gene gene : aptitude) {
+            System.out.println(gene);
         }
-        
+        System.out.println("Melhor Gene - "+best);
         //DumpToFile dump = new DumpToFile("/home/aluno/Documentos/trabalho-AG-carros/ag-carros/src/dump", lerFrom, "dump1.csv");
     }
 }

@@ -7,7 +7,7 @@ import java.io.IOException;
 import readFile.Leitor;
 
 public class DumpToFile {
-    String directory;
+    /*String directory;
     String readFrom;
     String fileName;
     Leitor ler = new Leitor(readFrom);
@@ -58,4 +58,5 @@ public class DumpToFile {
           }
 
     }
+    */
 }
